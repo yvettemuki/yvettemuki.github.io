@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yvettemuki's blogs" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Application类 每次当应用程序启动的时候，就会调用这个类，这个类是用于维护全局状态的基类（简而言之，就是设置全局变量的），可以通过创建此子类并将此子类的完全限定名称制定为android：nameAndroidManifest.xml &amp;lt;application&amp;gt;标记中的属性来提供自己的实现 如果单例需要全局上下文（例如广播接收器），则在调用单例方法时包含Context.getA">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="adnroid中不得不了解的东西">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/adnroid中不得不了解的东西/index.html">
+<meta property="og:site_name" content="Yvettemuki&#39;s blogs">
+<meta property="og:description" content="Application类 每次当应用程序启动的时候，就会调用这个类，这个类是用于维护全局状态的基类（简而言之，就是设置全局变量的），可以通过创建此子类并将此子类的完全限定名称制定为android：nameAndroidManifest.xml &amp;lt;application&amp;gt;标记中的属性来提供自己的实现 如果单例需要全局上下文（例如广播接收器），则在调用单例方法时包含Context.getA">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T08:14:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="adnroid中不得不了解的东西">
+<meta name="twitter:description" content="Application类 每次当应用程序启动的时候，就会调用这个类，这个类是用于维护全局状态的基类（简而言之，就是设置全局变量的），可以通过创建此子类并将此子类的完全限定名称制定为android：nameAndroidManifest.xml &amp;lt;application&amp;gt;标记中的属性来提供自己的实现 如果单例需要全局上下文（例如广播接收器），则在调用单例方法时包含Context.getA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/adnroid中不得不了解的东西/">
+
+
+
+
+
+  <title>adnroid中不得不了解的东西 | Yvettemuki's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yvettemuki's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">about personnel study life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/adnroid中不得不了解的东西/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao Shuqi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yvettemuki's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">adnroid中不得不了解的东西</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T10:04:51+08:00">
+                2019-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Application类"><a href="#Application类" class="headerlink" title="Application类"></a>Application类</h2><ol>
+<li>每次当应用程序启动的时候，就会调用这个类，这个类是用于维护全局状态的基类（简而言之，就是设置全局变量的），可以通过创建此子类并将此子类的完全限定名称制定为<code>android：name</code>AndroidManifest.xml <code>&lt;application&gt;</code>标记中的属性来提供自己的实现</li>
+<li>如果单例需要全局上下文（例如广播接收器），则在调用单例方法时包含Context.getApplicationContext()作为Context参数getInstance()</li>
+<li>通常情况下是系统帮我们进行创建的，如果要进行自定义Application，需要我们继承一下这个类</li>
+<li>这个时候，就可以使用myApplication.getContext()来获取Context对象了，一个问题：为什么不可以直接用getApplicationContext()。</li>
+<li>Application和Servie、Activity一样作为android的系统组件.通过Application来获取的Context和Activity来获取的Context是不一样的，一个是系统级别的上下文环境，一个是当前这个活动级别的上下文环境，一般的UI应用设置，一般调用活动上下文进行操作。</li>
+</ol>
+<h2 id="Serializable类"><a href="#Serializable类" class="headerlink" title="Serializable类"></a>Serializable类</h2><ol>
+<li>我们发现，在使用Intent来启动活动、发送广播或者启动服务等，可以在Intent中添加一些数据，但是利用Intent来实现数据传递的数据类型是很有限的，所以我们可以选择自定义传递的类型，需要借助两种实现方式：Serializable和Parcelable。</li>
+<li><p>Serializable是一个接口，表示序列化的意思，实现这个接口可以使数据转化为可以存储或者传输的状态，序列化的对象可以在网络上进行传输。</p>
+<pre><code>public Class Book implements Serializable{
+    private String name;
+    private String title;
+    get/set function()..
+} 
+</code></pre></li>
+</ol>
+<pre><code>Intent intent = new Intent(FirstActivity.this, NextActivity.class);
+intent.purExtra(&quot;book_data&quot;,Book);
+startActivity(intent);
+
+Book book = (Book) getIntent().getSerializableExtra(&quot;book_data&quot;);
+</code></pre><h2 id="Parcelable方式"><a href="#Parcelable方式" class="headerlink" title="Parcelable方式"></a>Parcelable方式</h2><ol>
+<li>实现原理和Serializable有出入，因为它是将一个完整的对象进行分解，使得分解后的每一部分的都是Intent所支持的数据类型。</li>
+<li>需要实现Parcelable接口，其中重写describeContent()和writeToParcel()，其中writeToParcel()实现将新定义的这个实现类（如Book）中的变量写入，<code>ParcelInstance.writeString()/.writeInt()</code></li>
+<li>再定义一个创建器：Parcelable.Creator<book> CREATOR = new Parcelable.Creator<book>(){}，需要我们重写createFromParcel(Parcel source){Book book; book.name = source.readString();..return book;…}</book></book></li>
+<li>最后在活动启动后，在另一个活动中获取的方法是getParcelableExtra(“key”);</li>
+</ol>
+<h2 id="implementation-和-api-以及旧版本的compile"><a href="#implementation-和-api-以及旧版本的compile" class="headerlink" title="implementation 和 api 以及旧版本的compile"></a>implementation 和 api 以及旧版本的compile</h2><ul>
+<li>在android进入3.0后，原本的依赖库的引入由complie改为了implementation或者api</li>
+<li>api可以看做是complie，完全替换没有问题</li>
+<li>而implementation则是禁止依赖的传递，官方提倡如果能用implementation，因为可以加快编译速度。</li>
+</ul>
+<h2 id="关于怎么解析从网络请求回来的json对象"><a href="#关于怎么解析从网络请求回来的json对象" class="headerlink" title="关于怎么解析从网络请求回来的json对象"></a>关于怎么解析从网络请求回来的json对象</h2><ol>
+<li>在json格式的数据中，{}表示json对象JSONObject，[]表示json数组JSONArray，所以只要知道想要获取的数据被包含在怎么样的json结构中，就可以获取到数据。<ul>
+<li>主要利用的类有：<code>JSONObject</code> <code>JSONArray</code> </li>
+<li>主要利用的方法有：<code>getJSONObject(name)</code> <code>getJSONArray(name)</code> <code>getString(name)</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="Glide的基本用法"><a href="#Glide的基本用法" class="headerlink" title="Glide的基本用法"></a>Glide的基本用法</h2><ol>
+<li>Clide是github上的一个开源库，用来实现网络图片加载的，十分方便，不需要自己实现HTTPConnection的请求，Bitmap的生成。但是其实他的源码实现十分复杂，之后会针对这个源码来进行学习。</li>
+<li>主要用法引入依赖<code>implementation &#39;com.github.bumptech.glide:glide:3.7.0&#39;</code></li>
+<li>Glide.with(context).load(url).into(ImageView)</li>
+<li>其中上下文表示图片加载到的对象，可以包含Activity、Fragment和Context类型的参数。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/对在react-native中到底在哪里进行网络请求/" rel="next" title="对在react native中到底在哪里进行网络请求">
+                <i class="fa fa-chevron-left"></i> 对在react native中到底在哪里进行网络请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/08/Glide库的学习/" rel="prev" title="Glide库的学习">
+                Glide库的学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liao Shuqi</p>
+              <p class="site-description motion-element" itemprop="description">saisir le meilleur moment</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yvettemuki" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://yvettemuki.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application类"><span class="nav-number">1.</span> <span class="nav-text">Application类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Serializable类"><span class="nav-number">2.</span> <span class="nav-text">Serializable类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parcelable方式"><span class="nav-number">3.</span> <span class="nav-text">Parcelable方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-和-api-以及旧版本的compile"><span class="nav-number">4.</span> <span class="nav-text">implementation 和 api 以及旧版本的compile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于怎么解析从网络请求回来的json对象"><span class="nav-number">5.</span> <span class="nav-text">关于怎么解析从网络请求回来的json对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glide的基本用法"><span class="nav-number">6.</span> <span class="nav-text">Glide的基本用法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao Shuqi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

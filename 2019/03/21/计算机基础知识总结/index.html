@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机基础,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yvettemuki's blogs" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="计算机网络 文章节选自的博客有： https://blog.csdn.net/smileiam/article/details/78226816    OSI七层协议 OSI七层协议模型主要是：应用层（Application）、表示层（Presentation）、会话层（Session）、传输层（Transport）、网络层（Network）、数据链路层（Data Link）、物理层（Physic">
+<meta name="keywords" content="计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机基础知识总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/计算机基础知识总结/index.html">
+<meta property="og:site_name" content="Yvettemuki&#39;s blogs">
+<meta property="og:description" content="计算机网络 文章节选自的博客有： https://blog.csdn.net/smileiam/article/details/78226816    OSI七层协议 OSI七层协议模型主要是：应用层（Application）、表示层（Presentation）、会话层（Session）、传输层（Transport）、网络层（Network）、数据链路层（Data Link）、物理层（Physic">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_img.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/web_proxy.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_3hand_link.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_data.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_4hand_unbind.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_status.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_time.jpg">
+<meta property="og:updated_time" content="2019-03-21T15:12:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机基础知识总结">
+<meta name="twitter:description" content="计算机网络 文章节选自的博客有： https://blog.csdn.net/smileiam/article/details/78226816    OSI七层协议 OSI七层协议模型主要是：应用层（Application）、表示层（Presentation）、会话层（Session）、传输层（Transport）、网络层（Network）、数据链路层（Data Link）、物理层（Physic">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/21/计算机基础知识总结/tcp_img.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/21/计算机基础知识总结/">
+
+
+
+
+
+  <title>计算机基础知识总结 | Yvettemuki's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yvettemuki's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">about personnel study life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/计算机基础知识总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao Shuqi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yvettemuki's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机基础知识总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T10:15:44+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><ul>
+<li>文章节选自的博客有：<ul>
+<li><a href="https://blog.csdn.net/smileiam/article/details/78226816" target="_blank" rel="noopener">https://blog.csdn.net/smileiam/article/details/78226816</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="OSI七层协议"><a href="#OSI七层协议" class="headerlink" title="OSI七层协议"></a>OSI七层协议</h2><ul>
+<li>OSI七层协议模型主要是：应用层（Application）、表示层（Presentation）、会话层（Session）、传输层（Transport）、网络层（Network）、数据链路层（Data Link）、物理层（Physical）</li>
+</ul>
+<h2 id="TCP-IP四层模型"><a href="#TCP-IP四层模型" class="headerlink" title="TCP/IP四层模型"></a>TCP/IP四层模型</h2><ul>
+<li>主要包括应用层、传输层、网际层、网络接口层，从实际上讲，网络接口层没有什么具体的内容<br><img src="tcp_img.jpg" alt></li>
+</ul>
+<h2 id="五层体系结构"><a href="#五层体系结构" class="headerlink" title="五层体系结构"></a>五层体系结构</h2><ul>
+<li>主要包括：应用层、运输层、网络层、数据链路层和物理层。五层协议只是OSI和TCP/IP的综合，实际应用还是TCP/IP的四层结构。为了方便可以把下两层称为网络接口层。<br><img src="web_proxy.jpg" alt></li>
+</ul>
+<h3 id="每层具体作用："><a href="#每层具体作用：" class="headerlink" title="每层具体作用："></a>每层具体作用：</h3><p><strong>1.物理层：</strong></p>
+<p>主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。它的主要作用是<strong>传输比特流</strong>（就是由1、0转化为<strong>电流强弱</strong>来进行传输,到达目的地后在转化为1、0，也就是我们常说的数模转换与模数转换）。这一层的数据叫做比特。 　　</p>
+<p><strong>2.数据链路层：</strong></p>
+<p>定义了如何让格式化数据以进行传输，以及如何让控制对物理介质的访问。这一层通常还提供<strong>错误检测和纠正</strong>，以确保数据的<strong>可靠传输</strong>。 　　</p>
+<p><strong>3.网络层：</strong></p>
+<p>在位于<strong>不同地理位置</strong>的网络中的两个<strong>主机系统</strong>之间提供<strong>连接和路径</strong>选择。Internet的发展使得从世界各站点访问信息的用户数大大增加，而网络层正是管理这种连接的层。 　　</p>
+<p><strong>4.运输层：</strong></p>
+<p>定义了一些传输数据的<strong>协议</strong>和<strong>端口号</strong>（WWW端口80等），如：<br><strong>TCP</strong>（transmission control protocol –传输控制协议，<strong>传输效率低，可靠性强，用于传输可靠性要求高，数据量大的数据</strong>）<br><strong>UDP</strong>（user datagram protocol–用户数据报协议，与TCP特性恰恰相反，用于传输<strong>可靠性要求不高，数据量小的数据</strong>，如QQ聊天数据就是通过这种方式传输的）。 主要是将从下层接收的数据进行<strong>分段</strong>和传输，到达目的地址后再进行<strong>重组</strong>。常常把这一层数据叫做<strong>段</strong>。 　　</p>
+<p><strong>5.会话层：</strong></p>
+<p>通过运输层（<strong>端口号</strong>：传输端口与接收端口）建立数据传输的通路。主要在你的系统之间<strong>发起会话</strong>或者<strong>接受会话请求</strong>（设备之间需要互相认识可以是<strong>IP也可以是MAC或者是主机名</strong>） 　　</p>
+<p><strong>6.表示层：</strong></p>
+<p>可确保<strong>一个系统的应用层所发送的信息可以被另一个系统的应用层读取</strong>。例如，PC程序与另一台计算机进行通信，其中一台计算机使用扩展二一十进制交换码（EBCDIC），而另一台则使用美国信息交换标准码（ASCII）来表示相同的字符。如有必要，表示层会通过使用一种<strong>通格式来实现多种数据格式之间的转换</strong>。 　　</p>
+<p><strong>7.应用层：</strong></p>
+<p>是最靠近用户的OSI层。这一层为用户的<strong>应用程序</strong>（例如电子邮件、文件传输和终端仿真）提供网络服务。</p>
+<h2 id="TCP三次握手、四次挥手"><a href="#TCP三次握手、四次挥手" class="headerlink" title="TCP三次握手、四次挥手"></a>TCP三次握手、四次挥手</h2><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="tcp_3hand_link.jpg" alt><br><img src="tcp_data.jpg" alt></p>
+<ul>
+<li><p>第一次握手：建立连接时，客户端A发送SYN包（SYN=j）到服务器B，并进入SYN_SEND状态，等待服务器B确认。</p>
+</li>
+<li><p>第二次握手：服务器B收到SYN包，必须确认客户A的SYN（ACK=j+1），同时自己也发送一个SYN包（SYN=k），即SYN+ACK包，此时服务器B进入SYN_RECV状态。</p>
+</li>
+<li><p>第三次握手：客户端A收到服务器B的SYN＋ACK包，向服务器B发送确认包ACK（ACK=k+1），此包发送完毕，客户端A和服务器B进入ESTABLISHED状态，完成三次握手。</p>
+</li>
+</ul>
+<p>完成三次握手，客户端与服务器开始传送数据</p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>由于TCP连接是<strong>全双工</strong>的，因此每个方向都必须<strong>单独</strong>进行关闭。这个原则是当一方<strong>完成它的数据发送任务</strong>后就能发送一个FIN来终止这个方向的连接。收到一个FIN只意味着<strong>这一方向上没有数据流动</strong>，<strong>一个TCP连接在收到一个FIN后仍能发送数据</strong>。首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。</p>
+<p>CP的连接的拆除需要发送四个包，因此称为四次挥手(four-way handshake)。<strong>客户端或服务器均可主动发起挥手动作</strong>，在socket编程中，任何一方执行<strong>close()</strong>操作即可产生挥手操作。</p>
+<p>（1）客户端A发送一个FIN，用来关闭客户A到服务器B的数据传送。</p>
+<p>（2）服务器B收到这个FIN，它发回一个ACK，确认序号为收到的序号加1。和SYN一样，一个FIN将占用一个序号。</p>
+<p>（3）服务器B关闭与客户端A的连接，发送一个FIN给客户端A。</p>
+<p>（4）客户端A发回ACK报文确认，并将确认序号设置为收到序号加1。</p>
+<p><img src="tcp_4hand_unbind.jpg" alt></p>
+<h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><ul>
+<li>由于TCP连接是全双工的，因此每个方向都必须单独进行关闭。这原则是当一方完成它的数据发送任务后就能发送一个FIN来终止这个方向的连接。收到一个 FIN只意味着这一方向上没有数据流动，一个TCP连接在收到一个FIN后仍能发送数据。首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。</li>
+<li>TCP协议的连接是全双工连接，一个TCP连接存在双向的读写通道。 </li>
+<li><p>简单说来是 “先关读，后关写”，一共需要四个阶段。以客户机发起关闭连接为例：</p>
+<p>  1.服务器读通道关闭<br>  2.客户机写通道关闭<br>  3.客户机读通道关闭<br>  4.服务器写通道关闭</p>
+</li>
+<li><p>关闭行为是在发起方数据发送完毕之后，给对方发出一个FIN（finish）数据段。直到接收到对方发送的FIN，且对方收到了接收确认ACK之后，双方的数据通信完全结束，过程中每次接收都需要返回确认数据段ACK。</p>
+</li>
+</ul>
+<h4 id="详细过程："><a href="#详细过程：" class="headerlink" title="详细过程："></a>详细过程：</h4><ul>
+<li>第一阶段 <strong>客户机**</strong>发送完数据**之后，向服务器发送一个FIN数据段，序列号为i；<ol>
+<li>服务器收到FIN(i)后，返回确认段ACK，序列号为i+1，关闭<strong>服务器读通道</strong>；</li>
+<li>客户机收到ACK(i+1)后，关闭<strong>客户机写通道</strong>；（此时，客户机仍能通过读通道读取服务器的数据，服务器仍能通过写通道写数据）</li>
+</ol>
+</li>
+<li><p>第二阶段 <strong>服务器**</strong>发送完数据**之后，向客户机发送一个FIN数据段，序列号为j；</p>
+<ol start="3">
+<li>客户机收到FIN(j)后，返回确认段ACK，序列号为j+1，关闭<strong>客户机读通道</strong>；</li>
+<li>服务器收到ACK(j+1)后，关闭<strong>服务器写通道</strong>。</li>
+</ol>
+</li>
+<li><p>这是标准的TCP关闭两个阶段，服务器和客户机都可以发起关闭，完全对称。</p>
+</li>
+<li>FIN标识是通过发送最后一块数据时设置的，标准的例子中，服务器还在发送数据，所以要等到发送完的时候，设置FIN（此时可称为TCP连接处于半关闭状态，因为数据仍可从被动关闭一方向主动关闭方传送）。<strong>如果在服务器收到FIN(i)时，已经没有数据需要发送，可以在返回ACK(i+1)的时候就设置FIN(j)标识，这样就相当于可以合并第二步和第三步</strong>。</li>
+</ul>
+<h4 id="TCP的TIME-WAIT和Close-Wait状态"><a href="#TCP的TIME-WAIT和Close-Wait状态" class="headerlink" title="TCP的TIME_WAIT和Close_Wait状态"></a>TCP的TIME_WAIT和Close_Wait状态</h4><ul>
+<li><strong>CLOSE_WAIT:</strong>发起TCP连接关闭的一方称为client，被动关闭的一方称为server。被动关闭的server收到FIN后，但未发出ACK的TCP状态是CLOSE_WAIT。出现这种状况一般都是由于server端代码的问题，如果你的服务器上出现大量CLOSE_WAIT，应该要考虑检查代码。</li>
+<li><strong>TIME_WAIT:</strong>根据TCP协议定义的3次握手断开连接规定,发起socket主动关闭的一方 socket将进入TIME_WAIT状态。TIME_WAIT状态将持续2个MSL(Max Segment Lifetime),在Windows下默认为4分钟，即240秒。TIME_WAIT状态下的socket不能被回收使用. 具体现象是对于一个处理大量短连接的服务器,如果是由服务器主动关闭客户端的连接，将导致服务器端存在大量的处于TIME_WAIT状态的socket， 甚至比处于Established状态下的socket多的多,严重影响服务器的处理能力，甚至耗尽可用的socket，停止服务。</li>
+</ul>
+<p><img src="tcp_status.jpg" alt></p>
+<p><img src="tcp_time.jpg" alt></p>
+<ul>
+<li>一般服务器都会设置net.ipv4.tcp_syncookies=1来防止SYN Flood攻击。假设一个用户向服务器发送了SYN报文后突然死机或掉线，那么服务器在发出SYN+ACK应答报文后是无法收到客户端的ACK报文的（第三次握手无法完成），这种情况下服务器端一般会重试（再次发送SYN+ACK给客户端）并等待一段时间后丢弃这个未完成的连接，这段时间的长度我们称为SYN Timeout，一般来说这个时间是分钟的数量级（大约为30秒-2分钟）。</li>
+<li>这些处在SYNC_RECV（一般是服务端接受到建立连接请求后第二次握手的状态）的TCP连接称为半连接，并存储在内核的半连接队列中，在内核收到对端发送的ack包时会查找半连接队列，并将符合的requst_sock信息存储到完成三次握手的连接的队列中，然后删除此半连接。</li>
+<li>大量SYNC_RECV的TCP连接会导致半连接队列溢出，这样后续的连接建立请求会被内核直接丢弃，这就是SYN Flood攻击。</li>
+<li>能够有效防范SYN Flood攻击的手段之一，就是SYN Cookie。SYN Cookie原理由D. J. Bernstain和 Eric Schenk发明。SYN Cookie是对TCP服务器端的三次握手协议作一些修改，专门用来防范SYN Flood攻击的一种手段。它的原理是，在TCP服务器收到TCP SYN包并返回TCP SYN+ACK包时，不分配一个专门的数据区，而是根据这个SYN包计算出一个cookie值。在收到TCP ACK包时，TCP服务器在根据那个cookie值检查这个TCP ACK包的合法性。如果合法，再分配专门的数据区进行处理未来的TCP连接。</li>
+</ul>
+<h4 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h4><p>为了方便描述，我给这个TCP连接的一端起名为Client，给另外一端起名为Server。上图描述的是Client主动关闭的过程，FTP协议中就这样的。如果要描述Server主动关闭的过程，只要交换描述过程中的Server和Client就可以了，HTTP协议就是这样的。</p>
+<p>描述过程：</p>
+<ul>
+<li>Client调用close()函数，给Server发送FIN，请求关闭连接；Server收到FIN之后给Client返回确认ACK，同时关闭读通道（不清楚就去看一下shutdown和close的差别），也就是说现在不能再从这个连接上读取东西，现在read返回0。此时Server的TCP状态转化为<strong>CLOSE_WAIT</strong>状态。</li>
+<li>Client收到对自己的FIN确认后，关闭 写通道，不再向连接中写入任何数据。</li>
+<li>接下来Server调用close()来关闭连接，给Client发送FIN，Client收到后给Server回复ACK确认，同时Client关闭读通道，进入<strong>TIME_WAIT</strong>状态。</li>
+<li>Server接收到Client对自己的FIN的确认ACK，关闭写通道，<strong>TCP连接转化为CLOSED</strong>，也就是关闭连接。</li>
+<li>Client在TIME_WAIT状态下要等待<strong>最大数据段生存期的两倍</strong>，<strong>然后才进入CLOSED状态</strong>，TCP协议关闭连接过程彻底结束。</li>
+<li>原因有二：</li>
+<li><ul>
+<li>一、保证TCP协议的全双工连接能够可靠关闭</li>
+<li>二、保证这次连接的重复数据段从网络中消失</li>
+</ul>
+</li>
+<li><p>先说第一点，如果Client直接CLOSED了，那么由于IP协议的不可靠性或者是其它网络原因，导致Server没有收到Client最后回复的ACK。那么Server就会在超时之后继续发送FIN，此时由于Client已经CLOSED了，就找不到与重发的FIN对应的连接，最后Server就会收到RST而不是ACK，Server就会以为是连接错误把问题报告给高层。这样的情况虽然不会造成数据丢失，但是却导致TCP协议不符合可靠连接的要求。所以，Client不是直接进入CLOSED，而是要保持TIME_WAIT，当再次收到FIN的时候，能够保证对方收到ACK，最后正确的关闭连接。</p>
+</li>
+<li>再说第二点，如果Client直接CLOSED，然后又再向Server发起一个新连接，我们不能保证这个新连接与刚关闭的连接的端口号是不同的。也就是说有可能新连接和老连接的端口号是相同的。一般来说不会发生什么问题，但是还是有特殊情况出现：假设新连接和已经关闭的老连接端口号是一样的，如果前一次连接的某些数据仍然滞留在网络中，这些延迟数据在建立新连接之后才到达Server，由于新连接和老连接的端口号是一样的，又因为TCP协议判断不同连接的依据是socket pair，于是，TCP协议就认为那个延迟的数据是属于新连接的，这样就和真正的新连接的数据包发生混淆了。所以TCP连接还要在TIME_WAIT状态等待2倍MSL，这样可以保证本次连接的所有数据都从网络中消失。</li>
+</ul>
+<h2 id="https和http"><a href="#https和http" class="headerlink" title="https和http"></a>https和http</h2><h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><ul>
+<li>请求行：1、请求方法 2、请求URL地址，他与报文头的Host属性一起组成完成的url地址 3、协议名称和版本号</li>
+<li>请求的报文头：包含若干属性，主要用来告诉服务端关于客户端请求的相关信息<ul>
+<li>常见的属性：Accept：客户端希望接受的数据类型、referer：请求的源地址：包括ip地址（网页请求具体到那个html文件）和端口号</li>
+<li>Accept-Language: 接受的语言、User-Agent：浏览器类型，Content-type：发送数据的类型，也称MIME类型，application/json(一般会和accept一样)<br>++ Host：请求的服务器ip、Origin：发送请求的客户端ip和端口号 Content-Length / Connection：keep-alive、 cache-control、Cookie<br>–请求的内容：json或者?key=value&amp;key=value的形式</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/绑定服务/" rel="next" title="绑定服务">
+                <i class="fa fa-chevron-left"></i> 绑定服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/28/HashMap的实现原理/" rel="prev" title="HashMap的实现原理">
+                HashMap的实现原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liao Shuqi</p>
+              <p class="site-description motion-element" itemprop="description">saisir le meilleur moment</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yvettemuki" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://yvettemuki.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI七层协议"><span class="nav-number">1.1.</span> <span class="nav-text">OSI七层协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP四层模型"><span class="nav-number">1.2.</span> <span class="nav-text">TCP/IP四层模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五层体系结构"><span class="nav-number">1.3.</span> <span class="nav-text">五层体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每层具体作用："><span class="nav-number">1.3.1.</span> <span class="nav-text">每层具体作用：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP三次握手、四次挥手"><span class="nav-number">1.4.</span> <span class="nav-text">TCP三次握手、四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四次挥手"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#详细过程："><span class="nav-number">1.4.0.4.</span> <span class="nav-text">详细过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP的TIME-WAIT和Close-Wait状态"><span class="nav-number">1.4.0.5.</span> <span class="nav-text">TCP的TIME_WAIT和Close_Wait状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体过程"><span class="nav-number">1.4.0.6.</span> <span class="nav-text">具体过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https和http"><span class="nav-number">1.5.</span> <span class="nav-text">https和http</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http"><span class="nav-number">1.5.1.</span> <span class="nav-text">http</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao Shuqi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yvettemuki's blogs" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="#AsyncTask AsyncTask指定了三个泛型参数  Params Progress Result class DownloadTask extends AsyncTask&amp;lt;void, Integer, Boolean&amp;gt;    实现具体功能，还需要对AsyncTask进行重写  onPreExcute() 会进行初始化操作，如进度条显示   doInBackground() 这">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/android学习笔记/index.html">
+<meta property="og:site_name" content="Yvettemuki&#39;s blogs">
+<meta property="og:description" content="#AsyncTask AsyncTask指定了三个泛型参数  Params Progress Result class DownloadTask extends AsyncTask&amp;lt;void, Integer, Boolean&amp;gt;    实现具体功能，还需要对AsyncTask进行重写  onPreExcute() 会进行初始化操作，如进度条显示   doInBackground() 这">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-02T15:39:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android学习笔记">
+<meta name="twitter:description" content="#AsyncTask AsyncTask指定了三个泛型参数  Params Progress Result class DownloadTask extends AsyncTask&amp;lt;void, Integer, Boolean&amp;gt;    实现具体功能，还需要对AsyncTask进行重写  onPreExcute() 会进行初始化操作，如进度条显示   doInBackground() 这">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/android学习笔记/">
+
+
+
+
+
+  <title>android学习笔记 | Yvettemuki's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yvettemuki's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">about personnel study life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/android学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao Shuqi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yvettemuki's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">android学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T20:56:32+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="#AsyncTask"></a>#AsyncTask</h2><ul>
+<li><p>AsyncTask指定了三个泛型参数</p>
+<ul>
+<li>Params</li>
+<li>Progress</li>
+<li><p>Result</p>
+<p><code>class DownloadTask extends AsyncTask&lt;void, Integer, Boolean&gt;</code></p>
+</li>
+</ul>
+</li>
+<li><p>实现具体功能，还需要对AsyncTask进行重写</p>
+<ul>
+<li>onPreExcute()<ul>
+<li>会进行初始化操作，如进度条显示</li>
+</ul>
+</li>
+<li>doInBackground()<ul>
+<li>这里所有代码都运行在子线程中，不可以进行UI操作    </li>
+</ul>
+</li>
+<li>publishProgress()<ul>
+<li>反馈当前任务进度</li>
+</ul>
+</li>
+<li>onProgressUpdata()<ul>
+<li>后台任务中调用了publishProgress方法后，这个方法会很快被调用，该方法中携带的参数就是后台任务中传递过来的</li>
+</ul>
+</li>
+<li>onPostExecute(Result)<ul>
+<li>在后台任务执行完毕后，就会调用这个方法，也是可以进行UI操作，比如提示任务执行结果或者关闭进度条等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编写完具体方法后，实际在使用中只需要 <code>new DownLoadTask().execute()</code>就可以执行</p>
+</li>
+</ul>
+<h2 id="Service"><a href="#Service" class="headerlink" title="#Service"></a>#Service</h2><ul>
+<li>每一个服务需要在mainifest.xml中进行注册</li>
+<li>需要重写的函数<ul>
+<li>onCreate()</li>
+<li>onStartCommand()</li>
+<li>onDestroy()</li>
+</ul>
+</li>
+<li>启动和停止Service通过Intent（回忆Activity之间的消息传递和启动等也是通过Intent实现）</li>
+<li><p>启动和停止的方式和Activity类似</p>
+<pre><code>Intent startIntent = new Intent(this, MyService.class);
+StartService(startIntent);
+
+Intent stopIntent = new Intent(this, MyService.class);
+StopService(stopIntent);
+</code></pre></li>
+<li>onCreate()方法只在首次启动中调用，onStartCommand()是每次启动服务都会调用</li>
+<li>虽然Service是在Activity中启动的（是Activity中的内置启动和停止方法），但是启动Service后实质上与Activity脱离关系了</li>
+<li>但是可以通过<code>onBind()</code>方法建立Activity和Service之间的联系</li>
+<li>继承Binder类来管理Service和Activity之间的联系<ul>
+<li>Binder是定义在Service类中的内部类，当Activity和这个Binder绑定后就可以调用的Binder里面的提供的方法</li>
+<li>实现过程主要通过Service中Binder的定义，提供方法；Activity中定义对应的<code>MyService.MyBinder</code>，然后定义<code>ServiceConnection</code>匿名内部类，重写<code>onServiceDisconnected()</code> 和 <code>onServiceConnected()</code>方法；最后调用Activity中的<code>bindService(Intent bindIntent, ServiceConnection connection, BIND_AUTO_CREATE)</code>实现绑定</li>
+</ul>
+</li>
+<li>虽然每调用一次<code>startService()</code>就会调用一次<code>onStartCommand()</code>,但是每个服务只会存在一个实例，因此只需要使用一次<code>stopService()</code>或者<code>stopSelf()</code>服务就可以停止下来</li>
+<li>当调用Context中的<code>bindService()</code>方法后，Service的生命周期中就会调用<code>bind()</code>,来实现服务的持续连接</li>
+<li>注意：当同时调用了<code>startService()</code>和<code>bindService()</code>方法后，需要同时调用<code>stopService()</code>和<code>unbindService()</code>来启动<code>onDestroy()</code></li>
+<li>创建前台服务的过程和通知相类似，需要构建一个Notification，但是启动的方法是使用<code>startForeground(int id, Notification notification)</code>，并且在状态栏中显示出来</li>
+<li>服务的代码默认运行在主程序中，如果在服务中心进行耗时操作，就会容易产生ANR</li>
+<li>IntentService这个类可以实现提供创建子线程、自动关闭服务的功能，因为父类onHandleIntent()方法中已经构建了子线程，本质上就是Intent，所以在Activity中启动形式没有变化</li>
+</ul>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="#Lambda表达式"></a>#Lambda表达式</h2><ul>
+<li>java8引入的新特性，还有stream API、接口默认实现等</li>
+<li>只有一个待实现方法的接口，都可以使用Lambda表达式</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/13/L-expression-du-temps/" rel="next" title="L'expression du temps">
+                <i class="fa fa-chevron-left"></i> L'expression du temps
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/02/Activity、Fragment、Service的生命周期/" rel="prev" title="Activity、Fragment、Service的生命周期">
+                Activity、Fragment、Service的生命周期 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liao Shuqi</p>
+              <p class="site-description motion-element" itemprop="description">saisir le meilleur moment</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yvettemuki" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://yvettemuki.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncTask"><span class="nav-number">1.</span> <span class="nav-text">#AsyncTask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">2.</span> <span class="nav-text">#Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">3.</span> <span class="nav-text">#Lambda表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao Shuqi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构与算法,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yvettemuki's blogs" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="二叉树概况  完全二叉树：二叉树中节点的编号和满二叉树中重合 满二叉树：所有的叶子节点满足都在最后一层，各层的结点数达到最大值 二叉树遍历主要有三种： 先序遍历（根-左-右） 中序遍历（左-根-右） 后序遍历（左-右-根）   深度优先搜索算法（DFS）和广度优先搜索算法（BFS） 广度优先搜索算法也是树的层次遍历，通俗地讲：就是一层层地遍历树的结点（实现的数据类型是queue，在java中是Li">
+<meta name="keywords" content="数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于树的总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/关于树的总结/index.html">
+<meta property="og:site_name" content="Yvettemuki&#39;s blogs">
+<meta property="og:description" content="二叉树概况  完全二叉树：二叉树中节点的编号和满二叉树中重合 满二叉树：所有的叶子节点满足都在最后一层，各层的结点数达到最大值 二叉树遍历主要有三种： 先序遍历（根-左-右） 中序遍历（左-根-右） 后序遍历（左-右-根）   深度优先搜索算法（DFS）和广度优先搜索算法（BFS） 广度优先搜索算法也是树的层次遍历，通俗地讲：就是一层层地遍历树的结点（实现的数据类型是queue，在java中是Li">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-06T15:45:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于树的总结">
+<meta name="twitter:description" content="二叉树概况  完全二叉树：二叉树中节点的编号和满二叉树中重合 满二叉树：所有的叶子节点满足都在最后一层，各层的结点数达到最大值 二叉树遍历主要有三种： 先序遍历（根-左-右） 中序遍历（左-根-右） 后序遍历（左-右-根）   深度优先搜索算法（DFS）和广度优先搜索算法（BFS） 广度优先搜索算法也是树的层次遍历，通俗地讲：就是一层层地遍历树的结点（实现的数据类型是queue，在java中是Li">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/03/关于树的总结/">
+
+
+
+
+
+  <title>关于树的总结 | Yvettemuki's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yvettemuki's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">about personnel study life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/关于树的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao Shuqi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yvettemuki's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于树的总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T16:47:26+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p><strong>概况</strong></p>
+<ol>
+<li>完全二叉树：二叉树中节点的编号和满二叉树中重合</li>
+<li>满二叉树：所有的叶子节点满足都在最后一层，各层的结点数达到最大值</li>
+<li>二叉树遍历主要有三种：<ul>
+<li>先序遍历（根-左-右）</li>
+<li>中序遍历（左-根-右）</li>
+<li>后序遍历（左-右-根）</li>
+</ul>
+</li>
+<li>深度优先搜索算法（DFS）和广度优先搜索算法（BFS）<ul>
+<li>广度优先搜索算法也是树的层次遍历，通俗地讲：就是一层层地遍历树的结点（实现的数据类型是queue，在java中是LinkedList类实现</li>
+<li>深度优先搜索算法，也可以看成是二叉树的中序遍历（实现的数据类型是stack，在java中是Stack类）</li>
+</ul>
+</li>
+</ol>
+<p><strong>实现代码</strong></p>
+<ul>
+<li><p>BFS（广度优先搜索算法）</p>
+<ul>
+<li><p>思想：实现对二叉树一层一层地搜索遍历，所以，先将根节点进入队列（队首），然后进入循环，循环中先将队列中队首元素出队并且打印，然后判断他的左右子节点是否为空，不为空就分别入队，循环结束条件是直到队列为空。这个过程相当于是不断把节点一层层地放进队列中，因此可以按照层次顺序出队，实际情况用纸笔演练一下就是很简单的过程了。</p>
+<pre><code>public void levelOrder(TreeNode node){
+    LinkedList&lt;TreeNode&gt; queue = new LinkedList&lt;TreeNode&gt;();
+    if(node == null){
+        return;
+    }else{
+        queue.add(node);
+        while(!queue.isEmpty()){
+            //队列不为空
+            TreeNode topNode = queue.poll();
+            System.out.print(topNode.val + &quot; &quot;);
+            if(topNode.left != null){
+                queue.add(topNode.left);
+            }
+            if(topNode.right != null){
+                queue.add(topNode.right);
+            }
+        }
+    }
+
+}
+</code></pre></li>
+</ul>
+</li>
+<li><p>DFS（深度优先搜索算法）</p>
+<ul>
+<li>思想：其实思想和BFS很像，但是利用的数据结构是栈（Stack），先将根节点进栈，然后进入循环，循环首先将栈中最顶pop出，然后查看右节点和左节点是否存在，如果存在，则先后进栈，利用栈先进后出的特点，可以实现先遍历根节点，再遍历左节点，最后遍历右节点。用递归实现就是中序遍历。</li>
+</ul>
+</li>
+</ul>
+<pre><code>public void DepthSearch(TreeNode node){
+    Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();
+    if(node == null){
+        return;
+    }else{
+        stack.push(node);
+        while(!stack.isEmpty()){
+            TreeNode topNode = stack.pop();
+            System.out.print(topNode.val + &quot; &quot;);
+            if(topNode.right != null){
+                stack.push(topNode.right);
+            }
+            if(topNode.left != null){
+                stack.push(topNode.left);
+            }
+        }
+    }
+
+}
+</code></pre><ul>
+<li><p>Z型的层次遍历（基于广度搜索）</p>
+<ul>
+<li><p>思想：</p>
+<ul>
+<li>其实整体思路是基于广度搜索的，但是用的是深度优先搜索的数据结构栈。</li>
+<li>这里需要用到三个栈，其中两个栈用来做替换，实际上：在遍历过程中，一个栈中的元素总是满足在同一层上。第三个栈是用来在前面两个栈进行角色切换时的temp栈。最后我们还需要一个指标isStartFromLeft，表示是否先获取左节点，再获取右节点。</li>
+<li>一开始还是先将根节点入栈（nowStack），然后进入循环，先将nowStack中的顶部元素出栈，根据isStartFromLeft决定先左后右还是先右后左。当nowStack空了，表明该层元素遍历完毕，这时候需要进行栈的切换，将nextStack变成nowStack，同时指针做相反改变（如true变成false）。</li>
+<li><p>循环结束的条件是：当nowStack和nextStack都为空时。</p>
+<pre><code>public List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) {
+    //同一个栈里面的都是同一层的元素
+    Stack&lt;TreeNode&gt; temp = new Stack&lt;TreeNode&gt;();
+    Stack&lt;TreeNode&gt; stackNow = new Stack&lt;TreeNode&gt;();
+    Stack&lt;TreeNode&gt; stackNext = new Stack&lt;TreeNode&gt;();
+    if(root == null){
+        return new ArrayList&lt;&gt;();
+    }else{
+        stackNow.push(root);
+        boolean isStartFromLeft = true;
+        List&lt;List&lt;Integer&gt;&gt; resList = new ArrayList&lt;List&lt;Integer&gt;&gt;();
+        List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+        while(!stackNow.isEmpty() || !stackNext.isEmpty()){
+            TreeNode node = stackNow.pop();
+            list.add(node.val);
+            //System.out.print(node.val + &quot; &quot;);
+            if(isStartFromLeft){
+                //先将左节点进栈
+                if(node.left != null){
+                    stackNext.push(node.left);
+                }
+                if(node.right != null){
+                    stackNext.push(node.right);
+                }
+            }else{
+                //先从右节点进栈
+                if(node.right != null){
+                    stackNext.push(node.right);
+                }
+                if(node.left != null){
+                    stackNext.push(node.left);
+                }    
+            }
+            if(stackNow.isEmpty()){
+                //每次清空表示换层
+                isStartFromLeft = !isStartFromLeft;
+                temp = stackNow;
+                stackNow = stackNext;
+                stackNext = temp;
+                resList.add(list);
+                list = new ArrayList&lt;Integer&gt;();
+            }
+        }
+        return resList;
+    }
+}    
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/各种排序总结/" rel="next" title="排序总结">
+                <i class="fa fa-chevron-left"></i> 排序总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/07/对在react-native中到底在哪里进行网络请求/" rel="prev" title="对在react native中到底在哪里进行网络请求">
+                对在react native中到底在哪里进行网络请求 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liao Shuqi</p>
+              <p class="site-description motion-element" itemprop="description">saisir le meilleur moment</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yvettemuki" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://yvettemuki.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao Shuqi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
