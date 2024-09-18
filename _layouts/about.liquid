@@ -37,12 +37,12 @@ layout: default
 
     <div class="clearfix">
       {{ content }}
-      <span>
+      <span style="margin-right: 5px;">
         <a href='https://github.com/yvettemuki'>
           <i class="fa-brands fa-github" style="font-size: 1.5rem;"></i>
         </a>
       </span>
-      <span>
+      <span style="margin-right: 5px;">
         <a href='https://www.linkedin.com/in/shuqiliao/'>
           <i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i>
         </a>
@@ -63,10 +63,37 @@ layout: default
 
     <!-- Publications -->
     {% if page.fullpubs%}
-      <h4 style="font-weight: 500;">
-        📄 Publications →
-      </h4>
+      <div class="shuqi_about_item_title">
+        <i class="fa-regular fa-newspaper"></i> Publications
+      </div>
       {% include full_papers.liquid%}
+    {% endif %}
+
+    <!-- Projects -->
+    {% if page.projects %}
+      <div class="shuqi_about_item_title">
+        <i class="fa-solid fa-code-compare"></i> Projects
+      </div>
+      {% include projects_shuqi.liquid %}
+    {% endif %}
+
+    <!-- Academic Services -->
+    {% if page.services %}
+      <div class="shuqi_about_item_title">
+        <i class="fa-solid fa-graduation-cap"></i> Academic Services
+      </div>
+      <div>
+        <span style="font-weight: 400;">Teaching Assistantship:</span> <br>
+        CS 334 Fundamentals of Computer Graphics (2024 Fall) <br>
+        CS 535 Interactive of Computer Graphics (2023 Fall) <br>
+        CS 390 Great Issues in Computing (2023 Spring) <br>
+      </div>
+      <div>
+        <span style="font-weight: 400;">Research Assistantship</span> 2023 Spring
+      </div>
+      <div>
+        <span style="font-weight: 400;">Reviews:</span> ISMAR, The Visual Comptuer.
+      </div>
     {% endif %}
 
     <!-- Latest posts -->

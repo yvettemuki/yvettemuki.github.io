@@ -3,9 +3,9 @@ layout: page
 title: Projects
 permalink: /projects/
 description: 
-nav: true
+nav: false
 nav_order: 3
-display_categories: [work, fun]
+display_categories: false
 horizontal: true
 ---
 
@@ -46,14 +46,20 @@ horizontal: true
   <!-- Generate cards for each project -->
 
 {% if page.horizontal %}
-
   <div class="container">
+    <div class="row row-cols-2">
+    {% for project in sorted_projects %}
+      {% include projects_shuqi.liquid %}
+    {% endfor %}
+    </div>
+  </div>
+  <!-- <div class="container">
     <div class="row row-cols-2">
     {% for project in sorted_projects %}
       {% include projects_horizontal.liquid %}
     {% endfor %}
     </div>
-  </div>
+  </div> -->
   {% else %}
   <div class="grid">
     {% for project in sorted_projects %}

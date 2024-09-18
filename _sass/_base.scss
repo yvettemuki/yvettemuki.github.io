@@ -611,6 +611,43 @@ footer.sticky-bottom {
 
 // Projects
 
+.shuqi-projects {
+  .container {
+    margin-top: 1.5rem;
+    display: flex;
+    padding: 0px;
+    // flex-direction: column; /* Stack items vertically */
+  }
+
+  .project-item {
+    width: 100%; /* Each item takes the full width */
+    margin-bottom: 20px; /* Space between items */
+  }
+
+  .project-thumbnail {
+    img {
+      width: 80%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  .project-info {
+    .project-title {
+      font-size: 1.2em;
+      margin-top: 1.5rem;
+      font-weight: 400;
+    }
+
+    .project-description {
+      font-size: 0.9em;
+      color: #494949;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+
 .projects {
   a {
     text-decoration: none;
@@ -657,7 +694,7 @@ footer.sticky-bottom {
 // Publications
 
 .publications {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 
   h1 {
     color: var(--global-theme-color);
@@ -724,7 +761,7 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: 400;
       }
 
       .author {
@@ -827,6 +864,13 @@ footer.sticky-bottom {
       }
     }
   }
+}
+
+// Shuqi Custom
+.shuqi_about_item_title {
+  margin-top: 4rem;
+  font-weight: 500;
+  font-size: 1.5rem;
 }
 
 // Rouge Color Customization
