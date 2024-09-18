@@ -20,7 +20,7 @@ layout: default
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% assign profile_image_class = 'img-fluid rounded-circle' %}
           {% else %}
             {% assign profile_image_class = 'img-fluid z-depth-1
       rounded' %}
@@ -32,13 +32,26 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
       </div>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
+    <div class="clearfix">
+      {{ content }}
+      <span>
+        <a href='https://github.com/yvettemuki'>
+          <i class="fa-brands fa-github" style="font-size: 1.5rem;"></i>
+        </a>
+      </span>
+      <span>
+        <a href='https://www.linkedin.com/in/shuqiliao/'>
+          <i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i>
+        </a>
+      </span>
+    </div>
+
+    {% comment %} {% if page.profile.more_info %}
+      <div class="more-info">{{ page.profile.more_info }}</div>
+    {% endif %} {% endcomment %}
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
@@ -50,9 +63,9 @@ layout: default
 
     <!-- Publications -->
     {% if page.fullpubs%}
-      <h2>
-        Publications
-      </h2>
+      <h4 style="font-weight: 500;">
+        📄 Publications →
+      </h4>
       {% include full_papers.liquid%}
     {% endif %}
 
