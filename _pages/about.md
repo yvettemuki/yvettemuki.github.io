@@ -28,7 +28,7 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
     thumbnail: "/assets/img/projects_images/typeflow_overview.png"
     link: "https://github.com/yvettemuki/typeflow-editor"
 ---
-I'm a PhD student in the Computer Science Department at Purdue University, where I'm fortunate to be advised by Voicu Popescu. Prior to my doctoral studies, I earned my Master’s degree in Computer Graphics Technology Department, also at Purdue. I completed my Bachelor's degree in Computer Science at Ocean University of China.
+I'm a PhD student in the Computer Science Department at Purdue University, where I'm fortunate to be advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). Prior to my doctoral studies, I earned my Master’s degree in Computer Graphics Technology Department, also at Purdue. I completed my Bachelor's degree in Computer Science at Ocean University of China.
 
 My research is centered on **AR/VR/MR** and **Graphics**, especially on immersive 3D Visualization, Occlusion Management and 3D Reconstruction.
 
