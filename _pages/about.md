@@ -28,16 +28,12 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
     thumbnail: "/assets/img/projects_images/typeflow_overview.png"
     link: "https://github.com/yvettemuki/typeflow-editor"
 ---
-I'm a third-year CS PhD student in the [XR Lab](https://www.cs.purdue.edu/xrlab/) at Purdue University, where I'm fortunate to be advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). Prior to my doctoral studies, I earned my Master’s degree in Computer Graphics Technology Department, also at Purdue. I completed my Bachelor's degree in Computer Science at Ocean University of China.
-
-My research is centered on **AR/VR/MR** and **Graphics**, especially on immersive 3D Visualization, Occlusion Management, Reconstruction.
-
-In my spare time, I like playing badminton and FPS game (Overwatch) and traveling!
-
-Contact me through **liao201** at **purdue** dot **edu**
-
 I'm a third-year PhD student in Computer Science at Purdue University, where I am a member of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I previously earned my Master’s degree in Computer Graphics Technology at Purdue, and my Bachelor's degree in Computer Science from Ocean University of China.
 
 My research focuses on **Augmented, Virtual, and Mixed Reality (AR/VR/MR) and Computer Graphics**, particularly in immersive 3D visualization, occlusion management, and reconstruction. I aim to break the boundary between the virtual and real worlds, creating seamless experiences that bridge these environments.
 
-Outside of research, I enjoy playing badminton 🏸, traveling 🗺, and playing FPS games like Overwatch 🎮! I also have a lovely cat named Pixel!
+Outside of research, I enjoy playing badminton 🏸, traveling 🗺, and playing FPS games like Overwatch 🎮! 
+
+I also have a lovely cat named Pixel 😸!
+
+Contact me through **liao201** at **purdue** dot **edu**
