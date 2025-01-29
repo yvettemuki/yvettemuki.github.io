@@ -17,10 +17,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
 projects:
-  - title: "Float Mind"
-    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation."
-    thumbnail: "/assets/img/projects_images/floatmind.jpg"
-    link: "https://github.com/luffy-yu/XRDC24"
 
   - title: "Real Water"
     description: "Simulate the water particles using smoothed particle hydrodynamics (SPH) based on Muller’s 2003
@@ -32,6 +28,12 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
     description: "Developed an open-source online interactive diagramming editor for automatic code generation, built using Vue.js and mxGraph.js."
     thumbnail: "/assets/img/projects_images/typeflow_overview.png"
     link: "https://github.com/yvettemuki/typeflow-editor"
+
+  - title: "Float Mind"
+    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation. (XR Design Challenge 2024 Finalist)"
+    thumbnail: "/assets/img/projects_images/floatmind.jpg"
+    link: "https://devpost.com/software/float-mind"
+    
 ---
 I'm a third-year PhD student in Computer Science at Purdue University, where I am a member of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I previously earned my Master’s degree in Computer Graphics Technology at Purdue, and my Bachelor's degree in Computer Science from Ocean University of China.
 
