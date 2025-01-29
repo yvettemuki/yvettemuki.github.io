@@ -17,6 +17,11 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
 projects:
+  - title: "Float Mind"
+    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation."
+    thumbnail: "/assets/img/projects_images/floatmind.jpg"
+    link: "https://github.com/luffy-yu/XRDC24"
+
   - title: "Real Water"
     description: "Simulate the water particles using smoothed particle hydrodynamics (SPH) based on Muller’s 2003
 SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
