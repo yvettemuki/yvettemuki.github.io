@@ -616,11 +616,12 @@ footer.sticky-bottom {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
+    padding: 0px;
   }
 
   .project-item {
     width: 100%; /* Each item takes the full width */
-    margin-bottom: 2.5rem; /* Space between items */
+    margin-bottom: 2rem; /* Space between items */
   }
 
   .project-thumbnail {
