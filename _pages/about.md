@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: me.JPG
+  image: me.png
   image_circular: true # crops the image to make it circular
   more_info: false
     
@@ -30,7 +30,7 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
     link: "https://github.com/yvettemuki/typeflow-editor"
 
   - title: "Float Mind"
-    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation. <strong>[XR Design Challenge 2024 Finalist]</strong>]"
+    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation. <strong>[XR Design Challenge 2024 Finalist]</strong>"
     thumbnail: "/assets/img/projects_images/floatmind.jpg"
     link: "https://devpost.com/software/float-mind"
   

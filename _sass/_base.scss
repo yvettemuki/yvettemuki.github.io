@@ -615,8 +615,8 @@ footer.sticky-bottom {
   .container {
     margin-top: 1.5rem;
     display: flex;
-    flex-direction: column;
     padding: 0px;
+    flex-direction: column;
   }
 
   .project-item {
@@ -642,8 +642,8 @@ footer.sticky-bottom {
     }
 
     .project-description {
+      color: var(--global-text-color);
       font-size: 1em;
-      color: #494949;
     }
   }
 }
