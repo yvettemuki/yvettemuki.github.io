@@ -40,7 +40,7 @@ I'm a third-year PhD student in Computer Science at Purdue University, where I a
 
 My research focuses on **Augmented, Virtual, and Mixed Reality (AR/VR/MR) and Computer Graphics**, particularly in immersive 3D visualization, haptic retargeting, cross-reality system. I aim to break the boundary between the virtual and real worlds, creating seamless experiences that bridge these environments.
 
-Outside of research, I enjoy playing badminton 🏸, traveling 🗺, and playing FPS games like Overwatch 🎮! 
+Outside of my research, I love playing badminton 🏸, exploring new destinations 🗺, and savoring great food 😋!
 
 I also have a lovely cat named Pixel 😸!
 
