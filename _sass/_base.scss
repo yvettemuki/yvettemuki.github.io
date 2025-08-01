@@ -620,11 +620,20 @@ footer.sticky-bottom {
   }
 
   .project-item {
-    width: 100%; /* Each item takes the full width */
-    margin-bottom: 2rem; /* Space between items */
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-left: 0px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth animation */
+  }
+  
+  .project-item:hover {
+    transform: translateY(-8px) scale(1.02); /* Slight lift and zoom */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
   }
 
   .project-thumbnail {
+    padding: 0px;
+    padding-right: 2rem;
     img {
       width: 100%;
       height: auto;
@@ -634,6 +643,7 @@ footer.sticky-bottom {
 
   .project-info {
     margin-top: 0.5rem;
+    padding: 0;
     
     .project-title {
       font-size: 1.2em;
@@ -645,6 +655,47 @@ footer.sticky-bottom {
       color: var(--global-text-color);
       font-size: 1em;
     }
+  }
+}
+
+// shuqi image
+.img-animation {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50% 60% 65% 35% / 60% 40% 35% 55%;
+  animation: morph 4s ease-in-out infinite;
+  transition: transform 0.4s ease, animation 0.4s ease;
+  margin-bottom: 1rem;
+}
+
+/* Hover Effect */
+.img-animation:hover {
+  transform: scale(1.05);
+  animation: morph-fast 2s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50% 60% 65% 35% / 60% 40% 35% 55%;
+  }
+  50% {
+    border-radius: 65% 40% 50% 55% / 50% 60% 55% 45%;
+  }
+  100% {
+    border-radius: 50% 60% 65% 35% / 60% 40% 35% 55%;
+  }
+}
+
+@keyframes morph-fast {
+  0% {
+    border-radius: 50% 60% 65% 35% / 60% 40% 35% 55%;
+  }
+  50% {
+    border-radius: 70% 35% 45% 60% / 55% 65% 50% 45%;
+  }
+  100% {
+    border-radius: 50% 60% 65% 35% / 60% 40% 35% 55%;
   }
 }
 
@@ -733,7 +784,7 @@ footer.sticky-bottom {
       .preview {
         width: 100%;
         min-width: 80px;
-        max-width: 250px;
+        max-width: 350px;
       }
 
       .abbr {

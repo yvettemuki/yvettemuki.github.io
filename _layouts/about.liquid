@@ -19,9 +19,15 @@ layout: default
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
+          {% comment %} {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid rounded-circle' %}
           {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1
+      rounded' %}
+          {% endif %} {% endcomment %}
+          {% if page.profile.image_animation %}
+            {% assign profile_image_class = 'img-animation' %}
+          {% else %} 
             {% assign profile_image_class = 'img-fluid z-depth-1
       rounded' %}
           {% endif %}
@@ -83,11 +89,11 @@ layout: default
         <i class="fa-solid fa-graduation-cap"></i> Academic Services
       </div>
       <div>
-        <span style="font-weight: 400;">Reviewer for:</span> IEEE VR (2025), IEEE ISMAR (2024), The Visual Comptuer (2024).
+        <span style="font-weight: 400;">Reviewer for:</span> IEEE VR (2025), IEEE ISMAR (2024, 2025), The Visual Comptuer (2024).
       </div>
       <div>
         <span style="font-weight: 400;">Teaching Assistantship:</span> <br>
-        CS 334 Fundamentals of Computer Graphics (2024 Fall) <br>
+        CS 334 Fundamentals of Computer Graphics (2024 Fall, 2025 Fall) <br>
         CS 535 Interactive of Computer Graphics (2023 Fall) <br>
         CS 390 Great Issues in Computing (2023 Spring) <br>
       </div>

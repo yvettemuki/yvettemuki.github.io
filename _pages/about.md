@@ -7,7 +7,8 @@ subtitle:
 profile:
   align: right
   image: me.png
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
+  image_animation: true
   more_info: false
     
 news: false # includes a list of news items
@@ -36,9 +37,9 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
   
     
 ---
-I'm a third-year PhD student in Computer Science at Purdue University, where I am a member of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I previously earned my Master’s degree in Computer Graphics Technology at Purdue, and my Bachelor's degree in Computer Science from Ocean University of China.
+I'm a PhD student in Computer Science at Purdue University, where I am a part of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I completed my Master’s degree in Computer Graphics Technology at Purdue and my Bachelor's degree in Computer Science at Ocean University of China.
 
-My research focuses on **Augmented, Virtual, and Mixed Reality (AR/VR/MR) and Computer Graphics**, particularly in immersive 3D visualization, haptic retargeting, cross-reality system. I aim to break the boundary between the virtual and real worlds, creating seamless experiences that bridge these environments.
+My research focuses on **XR (AR/VR/MR), Computer Graphics, and HCI**, with an emphasis on immersive 3D visualization, haptic retargeting, cross-reality systems, and LLM-based agent frameworks for XR.
 
 Outside of my research, I love playing badminton 🏸, exploring new destinations 🗺, and savoring great food 😋!
 
