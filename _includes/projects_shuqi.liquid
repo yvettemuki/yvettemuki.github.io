@@ -1,18 +1,17 @@
 <div class="shuqi-projects">
   <div class="container">
     {% for project in page.projects %}
-      <div class="row project-item">
-        <div class="col-sm-5 project-thumbnail">
+      <a href="{{ project.link }}" class="project-link">
+        <div class="row project-item">
+          <div class="col-sm-5 project-thumbnail">
             <img src="{{ project.thumbnail }}" alt="{{ project.title }} Thumbnail">
+          </div>
+          <div class="col-sm-6 project-info">
+            <div class="project-title">{{ project.title }}</div>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
         </div>
-        <div class="col-sm-6 project-info">
-            <div class="project-title">
-                {{ project.title }}
-                <a href="{{ project.link }}"><i class="fa-solid fa-link"></i></a>
-            </div>
-        <p class="project-description">{{ project.description }}</p>
-        </div>
-      </div>
+      </a>
     {% endfor %}
   </div>
 </div>
