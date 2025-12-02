@@ -177,7 +177,7 @@ ul.task-list input[type="checkbox"] {
     margin-bottom: 10px;
 
     .row {
-      display: flex;
+      display: none;
       align-items: center;
     }
   }
@@ -854,19 +854,32 @@ footer.sticky-bottom {
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          // border: 1px solid var(--global-text-color);
+          color: var(--global-theme-color);
           border: none;
           padding-left: 0;
-          padding-right: 1rem;
+          padding-right: 0.5rem;
           padding-top: 0;
           padding-bottom: 0.2rem;
           margin-left: 0;
-          font-size: 1rem;
+          font-size: 0.85rem;
+          text-decoration: none;
+          position: relative;
+          display: inline-block;
+          line-height: 1.5;
+
+          &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 1em;
+            background-color: var(--global-theme-color);
+          }
 
           &:hover {
-            color: var(--global-theme-color);
-            // border-color: var(--global-theme-color);
+            text-decoration: underline;
           }
         }
       }
@@ -924,6 +937,23 @@ footer.sticky-bottom {
 
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
+      }
+
+      // Video blocks should use display:none to prevent iframe loading
+      .video.hidden {
+        display: none;
+        border: dashed 1px var(--global-bg-color);
+      }
+
+      .video.hidden.open {
+        display: block;
+        max-height: 100em;
+        border-color: var(--global-text-color);
+        transition-property: 0.15s ease;
+        -moz-transition: 0.15s ease;
+        -ms-transition: 0.15s ease;
+        -o-transition: 0.15s ease;
+        transition: all 0.15s ease;
       }
     }
   }

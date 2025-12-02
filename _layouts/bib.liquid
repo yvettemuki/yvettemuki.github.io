@@ -153,6 +153,11 @@
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
+    {% if entry.honer %}
+      <div class="periodical">
+        <span style="color: #e91e63;">[{{ entry.honer | strip }}]</span>
+      </div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -167,21 +172,25 @@
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-globe"></i></a>
+          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">doi</a>
+          {% comment %}<a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-globe"></i></a>{% endcomment %}
         {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-pdf"></i></a>
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">doi</a>
+          {% comment %}<a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-pdf"></i></a>{% endcomment %}
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">pdf</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-pdf"></i></a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">pdf</a>
+          {% comment %}<a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-pdf"></i></a>{% endcomment %}
         {% endif %}
       {% endif %}
       {% if entry.github %}
         {% if entry.github contains '://' %}
-          <a href="{{ entry.github }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-brands fa-github"></i></a>
+          <a href="{{ entry.github }}" class="btn btn-sm z-depth-0" role="button">github</a>
+          {% comment %}<a href="{{ entry.github }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-brands fa-github"></i></a>{% endcomment %}
         {% endif %}
       {% endif %}
       {% if entry.supp %}
@@ -192,7 +201,8 @@
         {% endif %}
       {% endif %}
       {% if entry.video %}
-        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-video"></i></a>
+        <a href="{{ entry.video }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm z-depth-0" role="button">video</a>
+        {% comment %}<a href="{{ entry.video }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-file-video"></i></a>{% endcomment %}
       {% endif %}
       {% if entry.blog %}
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>
@@ -215,7 +225,8 @@
         {% endif %}
       {% endif %}
       {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+        <a href="{{ entry.website }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm z-depth-0" role="button">project page</a>
+        {% comment %}<a href="{{ entry.website }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-external-link"></i></a>{% endcomment %}
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
@@ -293,9 +304,9 @@
     {% endif %}
 
     {% if entry.video %}
-      <!-- Hidden video block -->
-      <div class="abstract hidden">
-        <div style="text-align: center;">{% include video.liquid path=entry.video class="img-fluid rounded z-depth-1" controls=true %}</div>
+      <!-- Hidden video block - lazy loaded when opened -->
+      <div class="video hidden">
+        <div style="text-align: center;" class="video-container" data-video-url="{{ entry.video }}"></div>
       </div>
     {% endif %}
   </div>

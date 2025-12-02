@@ -29,17 +29,12 @@ SIGGRAPH paper. In the number of particles is 4096, the FPS is around 60."
     description: "Developed an open-source online interactive diagramming editor for automatic code generation, built using Vue.js and mxGraph.js."
     thumbnail: "/assets/img/projects_images/typeflow_overview.png"
     link: "https://github.com/yvettemuki/typeflow-editor"
-
-  - title: "Float Mind"
-    description: "Float Mind is an AI-powered MR gamified meditation app designed for stress relief and immersive relaxation. <strong>[XR Design Challenge 2024 Finalist]</strong>"
-    thumbnail: "/assets/img/projects_images/floatmind.jpg"
-    link: "https://devpost.com/software/float-mind"
   
     
 ---
-I'm a PhD student in Computer Science at Purdue University, where I am a part of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I completed my Master’s degree in Computer Graphics Technology at Purdue and my Bachelor's degree in Computer Science at Ocean University of China.
+I'm a PhD candidate in Computer Science at Purdue University, where I am a part of the [XR Lab](https://www.cs.purdue.edu/xrlab/), advised by [Voicu Popescu](https://www.cs.purdue.edu/homes/popescu/). I completed my Master’s degree in Computer Graphics Technology at Purdue and my Bachelor's degree in Computer Science at Ocean University of China.
 
-My research focuses on **XR (AR/VR/MR), Computer Graphics, and HCI**, with an emphasis on immersive 3D visualization, haptic retargeting, cross-reality systems, and LLM-based agent frameworks for XR.
+My research focuses on **XR (AR/VR/MR), Computer Graphics, and Human–AI Interaction**, with an emphasis on immersive 3D visualization, haptic retargeting, cross-reality interaction, and multi-agent systems.
 
 Outside of my research, I love playing badminton 🏸, exploring new destinations 🗺, and savoring great food 😋!
 

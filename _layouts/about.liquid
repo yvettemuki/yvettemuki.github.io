@@ -74,27 +74,33 @@ layout: default
 
     <!-- Publications -->
     {% if page.fullpubs%}
-      <div class="shuqi_about_item_title">
-        <i class="fa-regular fa-newspaper"></i> Publications
+      <div class="shuqi_about_item_title" style="display: flex; align-items: center;">
+        <img src="{{ '/assets/img/icons/publication.svg' | relative_url }}" alt="Publications" style="width: 2rem; height: 2rem; margin-right: 0.5rem; flex-shrink: 0;"> Publications
       </div>
       {% include full_papers.liquid%}
     {% endif %}
 
     <!-- Projects -->
     {% if page.projects %}
-      <div class="shuqi_about_item_title">
-        <i class="fa-solid fa-code-compare"></i> Projects
+      <div class="shuqi_about_item_title" style="display: flex; align-items: center;">
+        <img src="{{ '/assets/img/icons/github.svg' | relative_url }}" alt="Projects" style="width: 2rem; height: 2rem; margin-right: 0.5rem; flex-shrink: 0;"> Projects
       </div>
       {% include projects_shuqi.liquid %}
     {% endif %}
 
     <!-- Academic Services -->
     {% if page.services %}
-      <div class="shuqi_about_item_title">
-        <i class="fa-solid fa-graduation-cap"></i> Academic Services
+      <div class="shuqi_about_item_title" style="display: flex; align-items: center;">
+        <img src="{{ '/assets/img/icons/service.svg' | relative_url }}" alt="Academic Services" style="width: 2rem; height: 2rem; margin-right: 0.5rem; flex-shrink: 0;"> Academic Services
       </div>
       <div>
-        <span style="font-weight: 400;">Reviewer for:</span> IEEE VR (2025), IEEE ISMAR (2024, 2025), ISS (2025), The Visual Comptuer (2024).
+        <span style="font-weight: 400;">Reviewer for:</span><br>
+        IEEE Virtual Reality (IEEE VR) (2025, 2026)<br>
+        IEEE International Symposium on Mixed and Augmented Reality (IEEE ISMAR) (2024, 2025)<br>
+        ACM Conference on Human Factors in Computing Systems (CHI) (2026)<br>
+        ACM Conference on Intelligent User Interfaces (IUI) (2026)<br>
+        ACM Interactive Surfaces and Spaces (ISS) (2025)<br>
+        The Visual Computer (2024)
       </div>
       <div>
         <span style="font-weight: 400;">Teaching Assistantship:</span> <br>
